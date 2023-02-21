@@ -17,36 +17,36 @@ function singleRound(playerSelection, computerSelection) {
     let computerWin = `You lose! The computer's ${computerSelection} beats your ${playerSelection}.`;
     
     if (playerSelection === computerSelection) {
-        return tie
-        , console.log(tie) 
-        , tiesCounter++;
+        console.log(tie) 
+        , tiesCounter++
+        return tie;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return playerWin 
-        , console.log(playerWin)
-        , playerScore++;
+        console.log(playerWin)
+        , playerScore++
+        return playerWin; 
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return computerWin
-        , console.log(computerWin)
-        , computerScore++;
+        console.log(computerWin)
+        , computerScore++
+        return computerWin;
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return computerWin
-        , console.log(computerWin)
-        , computerScore++;
+        console.log(computerWin)
+        , computerScore++
+        return computerWin;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
-        return playerWin
-        , console.log(playerWin)
-        , playerScore++;
+        console.log(playerWin)
+        , playerScore++
+        return playerWin;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
-        return playerWin
-        , console.log(playerWin)
-        , playerScore++;
+        console.log(playerWin)
+        , playerScore++
+        return playerWin;
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return computerWin
-        , console.log(computerWin)
-        , computerScore++;
+        console.log(computerWin)
+        , computerScore++
+        return computerWin;
     } else { 
-        return console.log('Not a valid choice! Point for the computer.')
-        , computerScore++;
+        computerScore++
+        return console.log('Not a valid choice! Point for the computer.');
     }
 }
 
