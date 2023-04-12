@@ -5,9 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, paper, scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer ></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Turret+Road:wght@200;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+        <h1 class="h1-title">Rock, paper, scissors game</h1>
+        <div id="div-results">
+            <p id="results-paragraph">Choose your option! The result is going to show up here.</p>
+        </div>
+        <div class="buttons-container">
+            <div class="rps-buttons">
+                <button class="button" id="rock-button">Rock</button>
+                <button class="button" id="paper-button">Paper</button>
+                <button class="button" id="scissors-button">Scissors</button>
+            </div>
+        </div>
+        <h2 id="scores-title">Scores</h2>
+        <div class="div-scores-container">
+            <div id="div-scores">
+                <p class="scores-p" id="player-points">Player score: 0</p>
+                <p class="scores-p" id="ties-points">Ties: 0</p>
+                <p class="scores-p" id="computer-points">Computer score: 0</p>
+            </div>
+        </div>
+        <audio id="reset-game-sound-effect" src="sound-effects/new-game-sound-effect.wav"></audio>
+        <audio id="winner-sound-effect" src="sound-effects/win-sound.wav"></audio>
+        <audio id="loser-sound-effect" src="sound-effects/lose-sound.wav" ></audio>
 </body>
 </html>
