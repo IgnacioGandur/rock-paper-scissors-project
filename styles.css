@@ -1,173 +1,389 @@
 :root {
-    --color-background: #202124;
-    --color-buttons:#8F43EE;
-    --color-button-hover:#ac70f5;
-    --color-button-pressed:#7638c3;
-    --color-accent:#413543;
-    --color-alternative-accent:#F0EB8D;
-    --color-yes-button: #12d400;
-    --color-yes-button-hover: #16FF00;
-    --color-yes-button-active: #15c006;
-    --color-no-button: #f64141;
-    --color-no-button-hover: #F55353;
-    --color-no-button-active: #ad3e3e;
-}
-* {
-    margin: 0;
-    padding: 0;
-    color: #ffffff;
-}
-body {
-    background-color: var(--color-background);
+    --accent-color : #80ffdb;
+    --main-font : 'Press Start 2P', cursive;
+    --secondary-font :'Turret Road', cursive;
 }
 
-.h1-title {
-    text-align: center;
-    text-shadow: -3px 3px red;
-    font-size: 36px;
-    font-family: 'Jost', sans-serif;
-    font-family: 'Press Start 2P', cursive;
-    margin: 25px;
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #242424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 p {
-    font-family: 'Jost', sans-serif;
     font-family: 'Turret Road', cursive;
+    color: #eeeeee;
+    text-shadow: -2px 2px #000;
 }
-#div-results {
+.background-image1 {
+    background-image: url(images/kame-house-wallpaper.jpg);
+    background-size: cover;
+}
+
+.background-image2 {
+    background-image: url(images/shenron-2.jpg);
+    background-size: cover;
+}
+.background-image3 {
+    background-image: linear-gradient(#00000022, #00000022), url(images/wallpaper-goku-2.jpg);
+    background-size: cover;
+}
+
+.welcome-screen {
+    background-color: #100c1e ;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+.titles-style, .scores-title {
+    font-family: var(--main-font);
+    font-size: 1.3rem;
     text-align: center;
-    font-size: 20px;
-    padding: 25px;
+    color: #EEEEEE;
+    text-shadow: -3px 3px #000;
 }
-.buttons-container {
+
+.audio-buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons-style {
+    text-align: center;
+    font-family: var(--main-font);
+    text-shadow: -2px 2px #000;
+    box-shadow: -2px 2px black;
+    background-color: #80ffdb22;
+    border: 3px solid var(--accent-color);
+    border-radius: 5px;
+    color: var(--accent-color);
+    padding: 0.5em;
+    transition: scale 250ms, rotate 550ms , opacity 100ms, translate 100ms, rockAnimation 250ms;
+    animation: tiltingAnimation 1400ms ease infinite;
+    opacity: .75;
+}
+.buttons-style:hover {
+    background-color: var(--accent-color);
+    color: #eeeeee;
+    box-shadow: 0px 0px 20px var(--accent-color);
+    scale: 1.4;
+    rotate: 360deg;
+    opacity: 1;
+}
+.buttons-style:active{
+    translate: 0px 10px;
+}
+
+.game-container {
+    display: none;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    height: 500px;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+.results-paragraph, .buttons-container, .scores-title, .div-scores-container {
+    width: 100%;
+    text-align: center;
     display: flex;
     justify-content: center;
-    padding: 25px;
-    margin: 25px;
+    align-items: center;    
 }
-.rps-buttons {
-    height: 175px;
-    width: 650px;
+
+.results-paragraph, .scores-p {
+    font-size: 1.2rem;
+}
+
+.rps-buttons{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
-.button {
-    width: 180px;
-    height: 50px ;
-    background-color: var(--color-buttons);
-    text-shadow: -3px 3px #000;
-    text-align: center;
-    font-size: 18px;
-    font-family: 'Press Start 2P', cursive;
-    padding: 18px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: -3px 3px #000;
-    transition: all 0.1s;
-}
-.reset-button:hover,.button:hover{
-    background-color: var(--color-button-hover);
-    transform: translateY(-4px);
-    box-shadow: -6px 6px #000;
-}
-.reset-button:active,.button:active {
-    background-color: var(--color-button-pressed);
-    transform: translateY(4px);
-    box-shadow: -3px 3px #000;
 
-}
-#scores-title {
-    font-family: 'Press Start 2P', cursive;
-    text-align: center;
-    padding: 25px;
-    margin: 25px;
-    text-shadow: -3px 3px #000;
-    text-decoration: underline;
-}
-.div-scores-container {
-    display: flex;
-    justify-content: center;
-}
-#div-scores {
-    width: 500px;   
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
-}
-.play-again-div {
-    width: 600px;
-    height: 200px;
-    border-radius: 5px;
-    background-color: var(--color-buttons);
-    display: flex;
-    flex-wrap: wrap;
-    margin: 25px auto;
-    box-shadow: 0px 0px 0px 5px #000;
-    
-}
-.play-again-paragraph {
-    color: #ffffff;
-    font-family:'Press Start 2P', cursive;
-    font-size: 18px;
-    text-shadow: -3px 3px #000;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-}
 .yes-no-buttons-container {
-    width: 100%;
-    height: 80%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 1.5em;
 }
-.yes-button {
-    width: 180px;
-    height: 50px ;
-    background-color: var(--color-yes-button);
-    text-shadow: -3px 3px  #000;
-    text-align: center;
-    font-size: 18px;
-    font-family: 'Press Start 2P', cursive;
-    padding: 18px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: -3px 3px #000;
-    transition: all 0.1s;
+
+.div-scores-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.yes-button:hover {
-    background-color: var(--color-yes-button-hover);
-    transform: translateY(-4px);
-    box-shadow: -6px 6px  #000;
+
+.game-music-btn {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
 }
-.yes-button:active {
-    background-color: var(--color-yes-button-active);
-    transform: translateY(4px);
-    box-shadow: -3px 3px #000;
+
+/* Section for Keyframes and classes for animations. */
+
+/* ======================================== */
+
+@keyframes appear{
+    0%{translate: 0px -100vh;}
+    33%{translate: 0px 5%;}
+    66%{translate: 0px -5%;}
+    100%{ translate: 0px 0vh;}
 }
-.no-button {
-    width: 180px;
-    height: 50px ;
-    background-color: var(--color-no-button);
-    text-shadow: -3px 3px  #000;
-    text-align: center;
-    font-size: 18px;
-    font-family: 'Press Start 2P', cursive;
-    padding: 18px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: -3px 3px #000;
-    transition: all 0.1s;
+.appear {
+    animation: appear 1000ms cubic-bezier(0.65, 0.05, 0.36, 1);
 }
-.no-button:hover {
-    background-color: var(--color-no-button-hover);
-    transform: translateY(-4px);
-    box-shadow: -6px 6px  #000;
+ 
+/* ======================================== */
+
+@keyframes appearLeftToRight {
+    0%{translate: -100vw 0;}
+    33%{translate:  5% 0px;}
+    66%{translate: -5% 0px;}
+    100%{ translate: 0vw 0px;}
 }
-.no-button:active {
-    background-color: var(--color-no-button-active);
-    transform: translateY(4px);
-    box-shadow: -3px 3px #000;
+.appearLeftToRight {
+    animation: appearLeftToRight 1000ms cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+/* ======================================== */
+
+@keyframes playAgainAnimation {
+    0%{
+        rotate: 360deg;
+        opacity: 1;
+    }
+        
+    50%{
+        opacity: 0;
+        scale: 0;
+        rotate: 0deg;
+    }
+
+    100%{
+        scale: 1;
+        rotate: 360deg;
+        opacity: 1;
+    }
+}
+.playAgainAnimation {
+    animation: playAgainAnimation 1500ms ease;
+}
+
+/* ========================================= */
+
+@keyframes showGameScreen {
+    0% {
+        scale: 2;
+        opacity: 0;
+        rotate: 0deg;
+        }
+    50% {
+        scale: .9;
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+        /* rotate: 360deg; */
+    }
+}
+.showGameScreen {
+    animation: showGameScreen 700ms ease-out;
+}
+
+/* ======================================== */
+
+@keyframes tiltingAnimation {
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-10deg);}
+    100%{transform: rotate(10deg);}
+}
+.tiltingAnimation {
+    animation-name: tiltingAnimation;
+}
+
+/* ======================================== */
+
+@keyframes popUpParagraph {     
+    0%{
+        scale: 1;
+        opacity: 0;
+    }
+    50%{
+        scale: 1.3;
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.popUpParagraph {
+    animation: popUpParagraph 500ms ease-in-out;
+}
+
+@keyframes popUpParagraph2 {     
+    0%{
+        scale: 1;
+        opacity: 0;
+    }
+    50%{
+        scale: 1.3;
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.popUpParagraph2 {
+    animation: popUpParagraph2 500ms ease-in-out;
+}
+    /* =============================================== */
+
+/* End of keyframes section. */
+
+/* Start of media queries section.*/
+
+@media screen and (max-width: 480px){ /* MOBILE DEVICES MEDIA QUERY */
+    .background-image1 {
+        background-image: url(mobile-version/images/img1.wallspic.com-kame_house-dragon_ball-cloud-world-building-1125x2436.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .background-image2 {
+        background-image: linear-gradient(#00000055, #00000055), url(images/shenron-2.jpg);
+        background-position: 75%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .background-image3 {
+        background-image: linear-gradient(#00000011, #00000011), url(mobile-version/images/goku-vegeta.jpg);
+        background-position: 70%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .welcome-screen, .game-container {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        border-radius: 10px;
+        
+    }
+    .game-container {
+        display: none;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .welcome-title {
+        font-size: 1.2rem;
+    }
+    .results-paragraph, .scores-p, .play-again-paragraph {
+        flex: 0 0 auto;
+        font-size: 1rem;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .scores-title {
+        font-size: 2rem;
+    }
+
+    .rps-buttons {
+        width: 89vw;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+    .buttons-style {
+        animation: none;
+        font-size: 1rem;
+    }
+    .buttons-style:hover {
+        animation: none;
+        scale: initial;
+        rotate: initial;
+    }
+    
+    .div-scores-container {
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .game-music-btn {
+        width: 90%;
+        justify-content: space-between;
+    }
+
+    .play-again-div {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: stretch;
+    }
+
+    .yes-no-buttons-container {
+        width: 100%;
+        padding: 20px 0px;
+    }
+
+   
+}
+
+@media screen and (max-width: 821px) {
+    .background-image1 {
+        background-image: url(mobile-version/images/img1.wallspic.com-kame_house-dragon_ball-cloud-world-building-1125x2436.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .background-image2 {
+        background-image: linear-gradient(#00000055, #00000055), url(images/shenron-2.jpg);
+        background-position: 75%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .background-image3 {
+        background-image: linear-gradient(#00000011, #00000011), url(mobile-version/images/goku-vegeta.jpg);
+        background-position: 70%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .welcome-screen, .game-container{
+        border: none;
+        height: 100vh;
+        width: 100vw;
+    }
+    .game-container {
+        display: none;
+    }
 }
