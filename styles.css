@@ -25,21 +25,24 @@ p {
 .background-image1 {
     background-image: url(images/kame-house-wallpaper.jpg);
     background-size: cover;
+    background-position: center;
 }
 
 .background-image2 {
     background-image: url(images/shenron-2.jpg);
     background-size: cover;
+    background-position: center;
 }
 .background-image3 {
     background-image: linear-gradient(#00000022, #00000022), url(images/wallpaper-goku-2.jpg);
     background-size: cover;
+    background-position: center;
 }
 
 .welcome-screen {
     background-color: #100c1e ;
-    width: 800px;
-    height: 500px;
+    width: 80vw;
+    height: 80vh;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -50,7 +53,7 @@ p {
 
 .titles-style, .scores-title {
     font-family: var(--main-font);
-    font-size: 1.3rem;
+    font-size: 1.50rem;
     text-align: center;
     color: #EEEEEE;
     text-shadow: -3px 3px #000;
@@ -64,6 +67,7 @@ p {
 
 .buttons-style {
     text-align: center;
+    font-size: 1rem;
     font-family: var(--main-font);
     text-shadow: -2px 2px #000;
     box-shadow: -2px 2px black;
@@ -93,8 +97,8 @@ p {
     flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
-    width: 800px;
-    height: 500px;
+    width: 80vw;
+    height: 80vh;
     border: 5px solid white;
     border-radius: 10px;
 }
@@ -107,8 +111,8 @@ p {
     align-items: center;    
 }
 
-.results-paragraph, .scores-p {
-    font-size: 1.2rem;
+.results-paragraph, .scores-p, .play-again-paragraph {
+    font-size: 1.25rem;
 }
 
 .rps-buttons{
@@ -306,11 +310,12 @@ p {
         padding: 5px;
         text-align: center;
     }
-
+    .results-paragraph {
+        height: 50px;
+    }
     .scores-title {
         font-size: 2rem;
     }
-
     .rps-buttons {
         width: 89vw;
         display: flex;
@@ -353,11 +358,9 @@ p {
         width: 100%;
         padding: 20px 0px;
     }
-
-   
 }
 
-@media screen and (max-width: 821px) {
+@media screen and (min-width: 481px) and (max-width: 821px) {
     .background-image1 {
         background-image: url(mobile-version/images/img1.wallspic.com-kame_house-dragon_ball-cloud-world-building-1125x2436.png);
         background-position: center;
@@ -373,8 +376,8 @@ p {
     }
 
     .background-image3 {
-        background-image: linear-gradient(#00000011, #00000011), url(mobile-version/images/goku-vegeta.jpg);
-        background-position: 70%;
+        background-image: linear-gradient(#00000011, #00000011), url(images/wallpaper-goku-2.jpg);
+        background-position: right center;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -385,5 +388,9 @@ p {
     }
     .game-container {
         display: none;
+    }
+    .results-paragraph {
+        flex: 0 0 auto;
+        height: 50px;
     }
 }
